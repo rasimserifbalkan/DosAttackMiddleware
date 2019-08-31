@@ -92,6 +92,7 @@ namespace YourNameSpace.Middlewares
             Timer timer = GetTimer(ReleaseInterval);
             timer.Elapsed += delegate
             {
+               if (Banned.Count == 0) return;
                 Banned?.Pop();
             };
             return timer;
